@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/fon">
+
+    <TextView
+        android:id="@+id/text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="serif"
+        android:text="2048"
+        android:textColor="@color/white"
+        android:textSize="60dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/score"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toStartOf="@id/mainView"
+        app:layout_constraintTop_toTopOf="@+id/score" />
+
+    <LinearLayout
+        android:id="@+id/score"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="4dp"
+        android:background="@drawable/bnt_bg_black"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@id/mainView"
+        app:layout_constraintEnd_toStartOf="@id/highScore"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="4dp"
+            android:fontFamily="serif"
+            android:text="SCORE"
+            android:textColor="#CFCECE"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/scoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/highScore"
+        android:layout_width="80dp"
+        android:layout_height="60dp"
+        android:background="@drawable/bnt_bg_black"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="@id/mainView"
+        app:layout_constraintBottom_toTopOf="@id/mainView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginTop="4dp"
+            android:fontFamily="serif"
+            android:text="RECORD"
+            android:textColor="#CFCECE"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/highScoreText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            tools:text="0"
+            android:textColor="@color/white"
+            android:textSize="25sp" />
+
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/linearLayoutCompat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        app:layout_constraintBottom_toTopOf="@+id/mainView"
+        app:layout_constraintEnd_toEndOf="@+id/mainView"
+        app:layout_constraintStart_toStartOf="@+id/mainView"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.778">
+
+        <ImageView
+            android:id="@+id/home"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bnt_bg_black"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/home"
+            app:layout_constraintBottom_toTopOf="@+id/mainView"
+            app:layout_constraintHorizontal_bias="0.677"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/score"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.753" />
+
+        <ImageView
+            android:id="@+id/replay"
+            android:visibility="gone"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bnt_bg_black"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/baseline_replay_24"
+            app:layout_constraintBottom_toBottomOf="@+id/home"
+            app:layout_constraintEnd_toStartOf="@+id/score"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintRight_toLeftOf="@id/home"
+            app:layout_constraintStart_toEndOf="@+id/home"
+            app:layout_constraintTop_toTopOf="@+id/home"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <ImageView
+            android:id="@+id/restart"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/bnt_bg_black"
+            android:clickable="true"
+            android:padding="8dp"
+            android:src="@drawable/ic_reload"
+            app:layout_constraintBottom_toBottomOf="@+id/replay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.176"
+            app:layout_constraintStart_toEndOf="@+id/replay"
+            app:layout_constraintTop_toTopOf="@+id/replay"
+            app:layout_constraintVertical_bias="0.0"
+            app:tint="@color/white" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/bnt_bg_black"
+        android:orientation="vertical"
+        android:padding="3dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+
+            <TextView
+                style="@style/PlayButton"
+                tools:text="0" />
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
